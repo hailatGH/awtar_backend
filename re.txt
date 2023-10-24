@@ -1,3 +1,23 @@
+AZURE_CONTAINER = awtarstorage
+AZURE_ACCOUNT_NAME = awtarstoragev100
+POSTGRES_DB = awtar-db
+POSTGRES_PASSWORD = StrongP@ssword1212
+POSTGRES_USER = awtaradmin
+POSTGRES_HOST = awtar-db.postgres.database.azure.com
+awtarconatinerregistery.azurecr.io
+
+POSTGRES_HOST awtar-db.postgres.database.azure.com
+POSTGRES_USER awtaradmin
+POSTGRES_PASSWORD StrongP@ssword1212
+POSTGRES_DB awtar-db
+DEBUG True
+URL https://leza-award-backend-api.proudmushroom-13eba283.francecentral.azurecontainerapps.io
+AZURE_ACCOUNT_NAME awtarstoragev100
+AZURE_ACCOUNT_KEY nqorcxDdMMtbQQ1l12E+i3Lo4qgsDNf/nd8A42TxajOamnofPKm+/5Cagx0L8DcEuAQiD1zyj3Yz+AStoQ9RbQ==
+AZURE_LOCATION awtarstorage
+AZURE_CONTAINER awtarstorage
+
+
 asgiref==3.7.2
 autopep8==2.0.0
 azure-common==1.1.28
