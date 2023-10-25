@@ -19,7 +19,7 @@ if os.environ.get('LOCAL') == "True":
     LOCAL = True
 
 # URL = os.environ.get('URL')
-URL = 'https://leza-award-backend-api.proudmushroom-13eba283.francecentral.azurecontainerapps.io'
+URL = 'https://awtar-backend-api.calmgrass-743c6f7f.francecentral.azurecontainerapps.io'
 if URL:
     if LOCAL:
         ALLOWED_HOSTS = list(URL.split(','))
@@ -83,6 +83,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -95,17 +102,6 @@ WSGI_APPLICATION = 'core.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'awtar-db',
-        'USER': 'awtaradmin',
-        'PASSWORD': 'StrongP@ssword1212',
-        'HOST': 'awtar-db.postgres.database.azure.com',
-        'PORT': '5432'
-        # 'OPTIONS': {'sslmode': 'require'}
-    }
-}
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -147,15 +143,31 @@ REST_FRAMEWORK = {
         # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     # ]
 
-if not LOCAL:
+# if not LOCAL:
+#     STATICFILES_DIRS = [
+#         os.path.join(BASE_DIR, '/static/'),
+#     ]
+
+#     AZURE_ACCOUNT_NAME = os.environ.get('AZURE_ACCOUNT_NAME')
+#     AZURE_ACCOUNT_KEY = os.environ.get('AZURE_ACCOUNT_KEY')
+#     AZURE_LOCATION = os.environ.get('AZURE_LOCATION')
+#     AZURE_CONTAINER = os.environ.get('AZURE_CONTAINER')
+#     AZURE_CUSTOM_DOMAIN = f'{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
+
+#     STATIC_LOCATION = 'static'
+#     STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
+
+#     STATICFILES_STORAGE = 'storages.backends.azure_storage.AzureStorage'
+#     DEFAULT_FILE_STORAGE = 'core.custom_storage.AzureMediaStorage'
+    
     # STATICFILES_DIRS = [
     #     os.path.join(BASE_DIR, '/static/'),
     # ]
 
-    # AZURE_ACCOUNT_NAME = os.environ.get('AZURE_ACCOUNT_NAME')
-    # AZURE_ACCOUNT_KEY = os.environ.get('AZURE_ACCOUNT_KEY')
-    # AZURE_LOCATION = os.environ.get('AZURE_LOCATION')
-    # AZURE_CONTAINER = os.environ.get('AZURE_CONTAINER')
+    # AZURE_ACCOUNT_NAME = 'awtarstoragev100'
+    # AZURE_ACCOUNT_KEY = 'nqorcxDdMMtbQQ1l12E+i3Lo4qgsDNf/nd8A42TxajOamnofPKm+/5Cagx0L8DcEuAQiD1zyj3Yz+AStoQ9RbQ=='
+    # AZURE_LOCATION = 'awtarstorage'
+    # AZURE_CONTAINER = 'awtarstorage'
     # AZURE_CUSTOM_DOMAIN = f'{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
 
     # STATIC_LOCATION = 'static'
@@ -163,19 +175,3 @@ if not LOCAL:
 
     # STATICFILES_STORAGE = 'storages.backends.azure_storage.AzureStorage'
     # DEFAULT_FILE_STORAGE = 'core.custom_storage.AzureMediaStorage'
-    
-    STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, '/static/'),
-    ]
-
-    AZURE_ACCOUNT_NAME = 'awtarstoragev100'
-    AZURE_ACCOUNT_KEY = 'nqorcxDdMMtbQQ1l12E+i3Lo4qgsDNf/nd8A42TxajOamnofPKm+/5Cagx0L8DcEuAQiD1zyj3Yz+AStoQ9RbQ=='
-    AZURE_LOCATION = 'awtarstorage'
-    AZURE_CONTAINER = 'awtarstorage'
-    AZURE_CUSTOM_DOMAIN = f'{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
-
-    STATIC_LOCATION = 'static'
-    STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
-
-    STATICFILES_STORAGE = 'storages.backends.azure_storage.AzureStorage'
-    DEFAULT_FILE_STORAGE = 'core.custom_storage.AzureMediaStorage'
