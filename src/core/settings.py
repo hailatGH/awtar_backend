@@ -143,35 +143,19 @@ REST_FRAMEWORK = {
         # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     # ]
 
-# if not LOCAL:
-#     STATICFILES_DIRS = [
-#         os.path.join(BASE_DIR, '/static/'),
-#     ]
+if not LOCAL:
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, '/static/'),
+    ]
 
-#     AZURE_ACCOUNT_NAME = os.environ.get('AZURE_ACCOUNT_NAME')
-#     AZURE_ACCOUNT_KEY = os.environ.get('AZURE_ACCOUNT_KEY')
-#     AZURE_LOCATION = os.environ.get('AZURE_LOCATION')
-#     AZURE_CONTAINER = os.environ.get('AZURE_CONTAINER')
-#     AZURE_CUSTOM_DOMAIN = f'{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
+    AZURE_ACCOUNT_NAME = os.environ.get('AZURE_ACCOUNT_NAME')
+    AZURE_ACCOUNT_KEY = os.environ.get('AZURE_ACCOUNT_KEY')
+    AZURE_LOCATION = os.environ.get('AZURE_LOCATION')
+    AZURE_CONTAINER = os.environ.get('AZURE_CONTAINER')
+    AZURE_CUSTOM_DOMAIN = f'{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
 
-#     STATIC_LOCATION = 'static'
-#     STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
+    STATIC_LOCATION = 'static'
+    STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
 
-#     STATICFILES_STORAGE = 'storages.backends.azure_storage.AzureStorage'
-#     DEFAULT_FILE_STORAGE = 'core.custom_storage.AzureMediaStorage'
-    
-    # STATICFILES_DIRS = [
-    #     os.path.join(BASE_DIR, '/static/'),
-    # ]
-
-    # AZURE_ACCOUNT_NAME = 'awtarstoragev100'
-    # AZURE_ACCOUNT_KEY = 'nqorcxDdMMtbQQ1l12E+i3Lo4qgsDNf/nd8A42TxajOamnofPKm+/5Cagx0L8DcEuAQiD1zyj3Yz+AStoQ9RbQ=='
-    # AZURE_LOCATION = 'awtarstorage'
-    # AZURE_CONTAINER = 'awtarstorage'
-    # AZURE_CUSTOM_DOMAIN = f'{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
-
-    # STATIC_LOCATION = 'static'
-    # STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
-
-    # STATICFILES_STORAGE = 'storages.backends.azure_storage.AzureStorage'
-    # DEFAULT_FILE_STORAGE = 'core.custom_storage.AzureMediaStorage'
+    STATICFILES_STORAGE = 'storages.backends.azure_storage.AzureStorage'
+    DEFAULT_FILE_STORAGE = 'core.custom_storage.AzureMediaStorage'

@@ -13,7 +13,7 @@ POSTGRES_DB awtar-db
 DEBUG True
 URL https://leza-award-backend-api.proudmushroom-13eba283.francecentral.azurecontainerapps.io
 AZURE_ACCOUNT_NAME awtarstoragev100
-AZURE_ACCOUNT_KEY nqorcxDdMMtbQQ1l12E+i3Lo4qgsDNf/nd8A42TxajOamnofPKm+/5Cagx0L8DcEuAQiD1zyj3Yz+AStoQ9RbQ==
+AZURE_ACCOUNT_KEY 7B3cMruGJ0MKld1uJnc/CaTMswgibjRF6pImLSH0Xjcf2xx+g3uOncQcJZpkvtUwdZrkmsdDUd7I+AStGxxDRw==
 AZURE_LOCATION awtarstorage
 AZURE_CONTAINER awtarstorage
 
