@@ -10,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-5vxjrkj0@3kok#r(0-$l3co7q1omml%444!18&37xocwp-v#6-')
 
-DEBUG = True
+DEBUG = False
 if os.environ.get('DEBUG') == "True":
     DEBUG = True
 
@@ -18,8 +18,8 @@ LOCAL = False
 if os.environ.get('LOCAL') == "True":
     LOCAL = True
 
-# URL = os.environ.get('URL')
-URL = 'https://awtar-backend-api.calmgrass-743c6f7f.francecentral.azurecontainerapps.io'
+URL = os.environ.get('URL')
+# URL = 'https://awtar-backend-api.calmgrass-743c6f7f.francecentral.azurecontainerapps.io'
 if URL:
     if LOCAL:
         ALLOWED_HOSTS = list(URL.split(','))
@@ -85,22 +85,15 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.environ.get('POSTGRES_DB'),
+        'USER': os.environ.get('POSTGRES_USER'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+        'HOST': os.environ.get('POSTGRES_HOST'),
+        'PORT': '5432'
+        # 'OPTIONS': {'sslmode': 'require'}
     }
 }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': os.environ.get('POSTGRES_DB'),
-#         'USER': os.environ.get('POSTGRES_USER'),
-#         'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
-#         'HOST': os.environ.get('POSTGRES_HOST'),
-#         'PORT': '5432'
-#         # 'OPTIONS': {'sslmode': 'require'}
-#     }
-# }
 
 
 AUTH_PASSWORD_VALIDATORS = [
