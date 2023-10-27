@@ -98,8 +98,8 @@ class AlbumsModel(models.Model):
         null=True, blank=True, max_length=4096)
     album_viewcount = models.IntegerField(null=False, blank=True, default=0)
     album_price = models.IntegerField(null=False, blank=True, default=40)
-    artist_id = models.ManyToManyField(
-        ArtistsModel, related_name="albumasartist", related_query_name="albumasartistquery")
+    artist_id = models.ForeignKey(ArtistsModel, related_name="albumasartist",
+                                  related_query_name="albumasartistquery", null=False, blank=True, on_delete=models.DO_NOTHING)
     encoder_FUI = models.CharField(null=False, blank=True, max_length=1023)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -166,8 +166,8 @@ class TracksModel(models.Model):
 
     track_lyrics = models.CharField(null=True, blank=True, max_length=4096)
     track_price = models.IntegerField(null=False, blank=True, default=5)
-    artist_id = models.ManyToManyField(
-        ArtistsModel, related_name="trackasartist", related_query_name="trackasartistquery")
+    artist_id = models.ForeignKey(ArtistsModel, related_name="trackasartist",
+                                  related_query_name="trackasartistquery", null=False, blank=True, on_delete=models.DO_NOTHING)
     album_id = models.ForeignKey(AlbumsModel, related_name="trackasalbum",
                                  related_query_name="trackasalbumquery", null=True, blank=True, on_delete=models.DO_NOTHING)
     genre_id = models.ForeignKey(GenresModel, related_name="genre_tracks",
@@ -192,6 +192,7 @@ class TracksModel(models.Model):
 
     def __str__(self):
         return f"{self.pk}: {self.track_name}"
+
 
 class PlayListsModel(models.Model):
 
@@ -228,7 +229,7 @@ class FavouritesModel(models.Model):
         ordering = ['id']
 
     track_id = models.ForeignKey(
-        TracksModel, null=False, blank=True, on_delete=models.CASCADE)
+        TracksModel, null=False, blank=True, on_delete=models.CASCADE, related_name='tracks')
     user_FUI = models.CharField(null=False, blank=True, max_length=1023)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

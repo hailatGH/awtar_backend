@@ -15,7 +15,7 @@ COPY ./src /app
 
 EXPOSE 8000
 
-RUN /py/bin/python manage.py makemigrations
-RUN /py/bin/python manage.py migrate
+# RUN /py/bin/python manage.py makemigrations
+# RUN /py/bin/python manage.py migrate
 
 CMD exec gunicorn --bind 0.0.0.0:8000 --workers 1 --threads 8 --timeout 0 core.wsgi:application
