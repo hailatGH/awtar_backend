@@ -3,7 +3,8 @@ from rest_framework.routers import DefaultRouter
 
 from .views import (
     ArtistsViewSet, AlbumsViewSet, GenresViewSet, TracksViewSet, PlayListsViewSet, PlayListTracksViewSet, FavouritesViewSet,
-    AlbumsByArtistIdViewSet, SingleTracksByArtistIdViewSet, TracksByAlbumIdViewSet, TracksByGenreIdViewSet, FavouriteTracksByUserIdViewSet)
+    AlbumsByArtistIdViewSet, SingleTracksByArtistIdViewSet, TracksByAlbumIdViewSet, TracksByGenreIdViewSet, FavouriteTracksByUserIdViewSet,
+    TracksByPlayListIdViewSet, PlayListsByUserIdViewSet)
 
 router = DefaultRouter(trailing_slash=False)
 router.register(r'artists', ArtistsViewSet, basename="artists")
@@ -20,9 +21,14 @@ router.register(r'genres', GenresViewSet, basename="genres")
 router.register(r'tracksbygenreid', TracksByGenreIdViewSet, basename="tracksbygenreid")
 
 router.register(r'tracks', TracksViewSet, basename="tracks")
+
 router.register(r'playlists', PlayListsViewSet, basename="playlists")
+router.register(r'playlistsbyuserid', PlayListsByUserIdViewSet, basename="playlistsbyuserid")
 router.register(r'playlisttracks', PlayListTracksViewSet,
                 basename="playlisttracks")
+router.register(r'tracksbyplaylistid', TracksByPlayListIdViewSet,
+                basename="tracksbyplaylistid")
+
 router.register(r'favourites', FavouritesViewSet, basename="favourites")
 router.register(r'favouritetracksbyuserid', FavouriteTracksByUserIdViewSet, basename="favouritetracksbyuserid")
 

@@ -52,38 +52,14 @@ class PlayListsTracksSerializer(serializers.ModelSerializer):
         ]
 
 class FavouritesSerializer(serializers.ModelSerializer):
-    tracks = TracksSerializer(many=True)
 
     class Meta:
         model = FavouritesModel
-        fields = ['id', 'track_id', 'user_FUI', 'tracks']
+        fields = ['id', 'track_id', 'user_FUI']
 
-    #     validators = [
-    #         UniqueTogetherValidator(
-    #             queryset=FavouritesModel.objects.all(),
-    #             fields=['track_id', 'user_FUI']
-    #         )
-    #     ]
-        
-    # def get_nested_relationships(self, instance):
-    #     # Custom method to retrieve nested relationships
-    #     # You can implement your logic here to fetch the related nested objects
-
-    #     # Example: Fetch the related tracks for the favourite instance
-    #     tracks = instance.tracks.all()
-
-    #     # Serialize the related tracks using the TrackSerializer
-    #     track_serializer = TracksSerializer(tracks, many=True)
-    #     serialized_tracks = track_serializer.data
-
-    #     return serialized_tracks
-
-    # def to_representation(self, instance):
-    #     # Override the to_representation method to include nested relationships
-    #     representation = super().to_representation(instance)
-
-    #     # Fetch and include the nested relationships
-    #     nested_relationships = self.get_nested_relationships(instance)
-    #     representation['tracks'] = nested_relationships
-
-    #     return representation
+        validators = [
+            UniqueTogetherValidator(
+                queryset=FavouritesModel.objects.all(),
+                fields=['track_id', 'user_FUI']
+            )
+        ]
