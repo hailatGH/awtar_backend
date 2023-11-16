@@ -20,7 +20,7 @@ class ArtistsViewSet(viewsets.ModelViewSet):
     pagination_class = StandardResultsSetPagination
     
     def list(self, request, *args, **kwargs):
-        return Response(json.loads(json.dumps(super().list(request, *args, **kwargs).data))['results'], status=status.HTTP_200_OK)
+        return Response(json.loads(json.dumps(super().list(request, *args, **kwargs).data)), status=status.HTTP_200_OK)
     
 class AlbumsByArtistIdViewSet(viewsets.ModelViewSet):
 
@@ -34,7 +34,7 @@ class AlbumsByArtistIdViewSet(viewsets.ModelViewSet):
         return queryset
     
     def list(self, request, *args, **kwargs):
-        return Response(json.loads(json.dumps(super().list(request, *args, **kwargs).data))['results'], status=status.HTTP_200_OK)
+        return Response(json.loads(json.dumps(super().list(request, *args, **kwargs).data)), status=status.HTTP_200_OK)
 
 class SingleTracksByArtistIdViewSet(viewsets.ModelViewSet):
     
@@ -48,7 +48,7 @@ class SingleTracksByArtistIdViewSet(viewsets.ModelViewSet):
         return queryset
     
     def list(self, request, *args, **kwargs):
-        return Response(json.loads(json.dumps(super().list(request, *args, **kwargs).data))['results'], status=status.HTTP_200_OK)
+        return Response(json.loads(json.dumps(super().list(request, *args, **kwargs).data)), status=status.HTTP_200_OK)
 
 
 
@@ -60,7 +60,7 @@ class AlbumsViewSet(viewsets.ModelViewSet):
     pagination_class = StandardResultsSetPagination
     
     def list(self, request, *args, **kwargs):
-        return Response(json.loads(json.dumps(super().list(request, *args, **kwargs).data))['results'], status=status.HTTP_200_OK)
+        return Response(json.loads(json.dumps(super().list(request, *args, **kwargs).data)), status=status.HTTP_200_OK)
     
 class TracksByAlbumIdViewSet(viewsets.ModelViewSet):
 
@@ -74,7 +74,7 @@ class TracksByAlbumIdViewSet(viewsets.ModelViewSet):
         return queryset
     
     def list(self, request, *args, **kwargs):
-        return Response(json.loads(json.dumps(super().list(request, *args, **kwargs).data))['results'], status=status.HTTP_200_OK)
+        return Response(json.loads(json.dumps(super().list(request, *args, **kwargs).data)), status=status.HTTP_200_OK)
 
 
 
@@ -86,7 +86,7 @@ class GenresViewSet(viewsets.ModelViewSet):
     pagination_class = StandardResultsSetPagination
     
     def list(self, request, *args, **kwargs):
-        return Response(json.loads(json.dumps(super().list(request, *args, **kwargs).data))['results'], status=status.HTTP_200_OK)
+        return Response(json.loads(json.dumps(super().list(request, *args, **kwargs).data)), status=status.HTTP_200_OK)
     
 class TracksByGenreIdViewSet(viewsets.ModelViewSet):
 
@@ -100,7 +100,7 @@ class TracksByGenreIdViewSet(viewsets.ModelViewSet):
         return queryset
     
     def list(self, request, *args, **kwargs):
-        return Response(json.loads(json.dumps(super().list(request, *args, **kwargs).data))['results'], status=status.HTTP_200_OK)
+        return Response(json.loads(json.dumps(super().list(request, *args, **kwargs).data)), status=status.HTTP_200_OK)
 
 
 
@@ -112,7 +112,7 @@ class TracksViewSet(viewsets.ModelViewSet):
     pagination_class = StandardResultsSetPagination
     
     def list(self, request, *args, **kwargs):
-        return Response(json.loads(json.dumps(super().list(request, *args, **kwargs).data))['results'], status=status.HTTP_200_OK)
+        return Response(json.loads(json.dumps(super().list(request, *args, **kwargs).data)), status=status.HTTP_200_OK)
 
 
 
@@ -124,7 +124,7 @@ class PlayListsViewSet(viewsets.ModelViewSet):
     pagination_class = StandardResultsSetPagination
     
     def list(self, request, *args, **kwargs):
-        return Response(json.loads(json.dumps(super().list(request, *args, **kwargs).data))['results'], status=status.HTTP_200_OK)
+        return Response(json.loads(json.dumps(super().list(request, *args, **kwargs).data)), status=status.HTTP_200_OK)
     
 class PlayListsByUserIdViewSet(viewsets.ModelViewSet):
 
@@ -138,7 +138,7 @@ class PlayListsByUserIdViewSet(viewsets.ModelViewSet):
         return queryset
     
     def list(self, request, *args, **kwargs):
-        return Response(json.loads(json.dumps(super().list(request, *args, **kwargs).data))['results'], status=status.HTTP_200_OK)
+        return Response(json.loads(json.dumps(super().list(request, *args, **kwargs).data)), status=status.HTTP_200_OK)
     
 class PlayListTracksViewSet(viewsets.ModelViewSet):
 
@@ -147,7 +147,7 @@ class PlayListTracksViewSet(viewsets.ModelViewSet):
     pagination_class = StandardResultsSetPagination
     
     def list(self, request, *args, **kwargs):
-        return Response(json.loads(json.dumps(super().list(request, *args, **kwargs).data))['results'], status=status.HTTP_200_OK)
+        return Response(json.loads(json.dumps(super().list(request, *args, **kwargs).data)), status=status.HTTP_200_OK)
     
     def destroy(self, request, *args, **kwargs):
         track_id = kwargs.get('pk')
@@ -174,7 +174,7 @@ class TracksByPlayListIdViewSet(viewsets.ModelViewSet):
         return queryset
     
     def list(self, request, *args, **kwargs):
-        return Response(json.loads(json.dumps(super().list(request, *args, **kwargs).data))['results'], status=status.HTTP_200_OK)
+        return Response(json.loads(json.dumps(super().list(request, *args, **kwargs).data)), status=status.HTTP_200_OK)
 
 
 
@@ -185,7 +185,7 @@ class FavouritesViewSet(viewsets.ModelViewSet):
     pagination_class = StandardResultsSetPagination
     
     def list(self, request, *args, **kwargs):
-        return Response(json.loads(json.dumps(super().list(request, *args, **kwargs).data))['results'], status=status.HTTP_200_OK)
+        return Response(json.loads(json.dumps(super().list(request, *args, **kwargs).data)), status=status.HTTP_200_OK)
     
     def destroy(self, request, *args, **kwargs):
         track_id = kwargs.get('pk')
@@ -211,4 +211,4 @@ class FavouriteTracksByUserIdViewSet(viewsets.ModelViewSet):
         return queryset
     
     def list(self, request, *args, **kwargs):
-        return Response(json.loads(json.dumps(super().list(request, *args, **kwargs).data))['results'], status=status.HTTP_200_OK)
+        return Response(json.loads(json.dumps(super().list(request, *args, **kwargs).data)), status=status.HTTP_200_OK)
