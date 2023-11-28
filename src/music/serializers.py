@@ -9,9 +9,14 @@ class ArtistsSerializer(serializers.ModelSerializer):
         fields = '__all__'
         
 class AlbumsSerializer(serializers.ModelSerializer):
+    artist_name = serializers.SerializerMethodField()
+    
     class Meta:
         model = AlbumsModel
         fields = '__all__'
+        
+    def get_artist_name(self, obj):
+        return obj.artist_id.artist_name if obj.artist_id else None
 
 class GenresSerializer(serializers.ModelSerializer):
 
