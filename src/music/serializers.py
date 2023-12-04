@@ -25,10 +25,14 @@ class GenresSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class TracksSerializer(serializers.ModelSerializer):
+    artist_name = serializers.SerializerMethodField()
     
     class Meta:
         model = TracksModel
         fields = '__all__'
+    
+    def get_artist_name(self, obj):
+        return obj.artist_id.artist_name if obj.artist_id else None
 
 class PlayListsSerializer(serializers.ModelSerializer):
 
