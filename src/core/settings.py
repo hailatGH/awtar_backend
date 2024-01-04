@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     'storages',
     
     # Custom Apps
-    'music'
+    'music',
+    'search',
 ]
 
 MIDDLEWARE = [
