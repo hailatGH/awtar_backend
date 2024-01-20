@@ -49,9 +49,14 @@ class AlbumsSerializer(serializers.ModelSerializer):
         return album_coverImage
     
     
+    # def get_artist_name (self,obj):
+    #     artist_objects = obj.artist_id.all()
+    #     artist_names = [artist.artist_name for artist in artist_objects]
+    #     return artist_names
     def get_artist_name (self,obj):
-        artist_objects = obj.artist_id.all()
-        artist_names = [artist.artist_name for artist in artist_objects]
+        artist_names = obj.artist_id.artist_name
+        # artist_objects = obj.artist_id.all()
+        # artist_names = [artist.artist_name for artist in artist_objects]
         return artist_names
     
     # def get_is_purchasedByUser(self,obj):
@@ -101,8 +106,9 @@ class TracksSerializer(serializers.ModelSerializer):
         return track_audioFile
     
     def get_artist_name (self,obj):
-        artist_objects = obj.artist_id.all()
-        artist_names = [artist.artist_name for artist in artist_objects]
+        artist_names = obj.artist_id.artist_name
+        # artist_objects = obj.artist_id.all()
+        # artist_names = [artist.artist_name for artist in artist_objects]
         return artist_names
 
     # def get_is_purchasedByUser(self,obj):
