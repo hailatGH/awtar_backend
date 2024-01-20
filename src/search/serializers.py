@@ -10,10 +10,11 @@ class ArtistsSerializer(serializers.ModelSerializer):
         model = ArtistsModel
         fields = '__all__'
 
-    # def get_artist_profileImage(self, obj):
-    #     artist_profileImage = obj.artist_profileImage.url
-    #     # artist_profileImage = "https://awtarstoragev100.blob.core.windows.net/awtarstorage/media" + artist_profileImage # replace adjust_artist_profileImage with your custom function
-    #     return artist_profileImage
+    def get_artist_profileImage(self, obj):
+        artist_profileImage = obj.artist_profileImage
+        artist_profileImage = artist_profileImage.url
+        # artist_profileImage = "https://awtarstoragev100.blob.core.windows.net/awtarstorage/media" + artist_profileImage # replace adjust_artist_profileImage with your custom function
+        return artist_profileImage
     
     def get_number_of_albums(self,obj):
         id = obj.id
