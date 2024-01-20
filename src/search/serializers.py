@@ -12,7 +12,7 @@ class ArtistsSerializer(serializers.ModelSerializer):
         
     def get_artist_profileImage(self, obj):
         artist_profileImage = obj.artist_profileImage
-        artist_profileImage = "https://zemamultimediablobcdn.azureedge.net/zemacontainer/" + artist_profileImage # replace adjust_artist_profileImage with your custom function
+        # artist_profileImage = "https://zemamultimediablobcdn.azureedge.net/zemacontainer/" + artist_profileImage # replace adjust_artist_profileImage with your custom function
         return artist_profileImage
     
     def get_number_of_albums(self,obj):
@@ -45,7 +45,7 @@ class AlbumsSerializer(serializers.ModelSerializer):
 
     def get_album_coverImage(self, obj):
         album_coverImage = obj.album_coverImage
-        album_coverImage = "https://zemamultimediablobcdn.azureedge.net/zemacontainer/" + album_coverImage # replace adjust_artist_profileImage with your custom function
+        # album_coverImage = "https://zemamultimediablobcdn.azureedge.net/zemacontainer/" + album_coverImage # replace adjust_artist_profileImage with your custom function
         return album_coverImage
     
     
@@ -92,12 +92,12 @@ class TracksSerializer(serializers.ModelSerializer):
 
     def get_track_coverImage(self, obj):
         track_coverImage = obj.track_coverImage
-        track_coverImage = "https://zemamultimediablobcdn.azureedge.net/zemacontainer/" + track_coverImage # replace adjust_artist_profileImage with your custom function
+        # track_coverImage = "https://zemamultimediablobcdn.azureedge.net/zemacontainer/" + track_coverImage # replace adjust_artist_profileImage with your custom function
         return track_coverImage
     
     def get_track_audioFile(self, obj):
         track_audioFile = obj.track_coverImage
-        track_audioFile = "https://zemamultimediablobcdn.azureedge.net/zemacontainer/" + track_audioFile # replace adjust_artist_profileImage with your custom function
+        # track_audioFile = "https://zemamultimediablobcdn.azureedge.net/zemacontainer/" + track_audioFile # replace adjust_artist_profileImage with your custom function
         return track_audioFile
     
     def get_artist_name (self,obj):
