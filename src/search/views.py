@@ -33,7 +33,7 @@ class ArtistViewSet(viewsets.ModelViewSet):
         for item in serialized_data:
             for key, value in item.items():
                 if isinstance(value, bytes):
-                    item[key] = value.decode('utf-8')
+                    item[key] = value.decode('utf-16')
         return Response(serialized_data, status=status.HTTP_200_OK)
         # return Response(json.loads(json.dumps(serializer.data)))
     
