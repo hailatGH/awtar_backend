@@ -2,7 +2,7 @@ from rest_framework import serializers
 from music.models import *
 
 class ArtistsSerializer(serializers.ModelSerializer):
-    artist_profileImage= serializers.SerializerMethodField()
+    # artist_profileImage= serializers.SerializerMethodField()
     number_of_tracks = serializers.SerializerMethodField()
     number_of_albums = serializers.SerializerMethodField()
     # is_singer = serializers.SerializerMethodField()
@@ -10,10 +10,10 @@ class ArtistsSerializer(serializers.ModelSerializer):
         model = ArtistsModel
         fields = '__all__'
 
-    def get_artist_profileImage(self, obj):
-        artist_profileImage = obj.artist_profileImage.url
-        # artist_profileImage = "https://awtarstoragev100.blob.core.windows.net/awtarstorage/media" + artist_profileImage # replace adjust_artist_profileImage with your custom function
-        return artist_profileImage
+    # def get_artist_profileImage(self, obj):
+    #     artist_profileImage = obj.artist_profileImage.url
+    #     # artist_profileImage = "https://awtarstoragev100.blob.core.windows.net/awtarstorage/media" + artist_profileImage # replace adjust_artist_profileImage with your custom function
+    #     return artist_profileImage
     
     def get_number_of_albums(self,obj):
         id = obj.id
@@ -34,7 +34,7 @@ class ArtistsSerializer(serializers.ModelSerializer):
     #     super().__init__(*args, **kwargs)
     #     self.queryset = self.queryset.exclude(is_singer=False,artist_status=False)
 class AlbumsSerializer(serializers.ModelSerializer):
-    album_coverImage= serializers.SerializerMethodField()
+    # album_coverImage= serializers.SerializerMethodField()
     artist_name = serializers.SerializerMethodField()
     # is_purchasedByUser = serializers.SerializerMethodField()
     number_of_tracks = serializers.SerializerMethodField()
@@ -43,10 +43,10 @@ class AlbumsSerializer(serializers.ModelSerializer):
         model = AlbumsModel
         fields = '__all__'
 
-    def get_album_coverImage(self, obj):
-        album_coverImage = obj.album_coverImage
-        # album_coverImage = "https://zemamultimediablobcdn.azureedge.net/zemacontainer/" + album_coverImage # replace adjust_artist_profileImage with your custom function
-        return album_coverImage
+    # def get_album_coverImage(self, obj):
+    #     album_coverImage = obj.album_coverImage
+    #     # album_coverImage = "https://zemamultimediablobcdn.azureedge.net/zemacontainer/" + album_coverImage # replace adjust_artist_profileImage with your custom function
+    #     return album_coverImage
     
     
     # def get_artist_name (self,obj):
@@ -85,8 +85,8 @@ class AlbumsSerializer(serializers.ModelSerializer):
 
    
 class TracksSerializer(serializers.ModelSerializer):
-    track_coverImage= serializers.SerializerMethodField()
-    track_audioFile= serializers.SerializerMethodField()
+    # track_coverImage= serializers.SerializerMethodField()
+    # track_audioFile= serializers.SerializerMethodField()
     artist_name = serializers.SerializerMethodField()
     # is_purchasedByUser = serializers.SerializerMethodField()
     # track_viewcount = serializers.SerializerMethodField()
@@ -95,15 +95,15 @@ class TracksSerializer(serializers.ModelSerializer):
         model = TracksModel
         fields = '__all__'
 
-    def get_track_coverImage(self, obj):
-        track_coverImage = obj.track_coverImage
-        # track_coverImage = "https://zemamultimediablobcdn.azureedge.net/zemacontainer/" + track_coverImage # replace adjust_artist_profileImage with your custom function
-        return track_coverImage
+    # def get_track_coverImage(self, obj):
+    #     track_coverImage = obj.track_coverImage
+    #     # track_coverImage = "https://zemamultimediablobcdn.azureedge.net/zemacontainer/" + track_coverImage # replace adjust_artist_profileImage with your custom function
+    #     return track_coverImage
     
-    def get_track_audioFile(self, obj):
-        track_audioFile = obj.track_coverImage
-        # track_audioFile = "https://zemamultimediablobcdn.azureedge.net/zemacontainer/" + track_audioFile # replace adjust_artist_profileImage with your custom function
-        return track_audioFile
+    # def get_track_audioFile(self, obj):
+    #     track_audioFile = obj.track_coverImage
+    #     # track_audioFile = "https://zemamultimediablobcdn.azureedge.net/zemacontainer/" + track_audioFile # replace adjust_artist_profileImage with your custom function
+    #     return track_audioFile
     
     def get_artist_name (self,obj):
         artist_names = obj.artist_id.artist_name

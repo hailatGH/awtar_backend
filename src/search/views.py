@@ -96,7 +96,7 @@ class AlbumViewSet(viewsets.ModelViewSet):
             rank=SearchRank(search_vector, search_query) + TrigramSimilarity('album_name', query) + TrigramSimilarity('album_description', query) + TrigramSimilarity('artist_id__artist_name', query) + TrigramSimilarity('artist_id__artist_description', query),
         ).distinct().filter(Q(rank__gte=0.1)).order_by('-rank','id')
         serializer = self.get_serializer(results, many=True,context={'user_id': user_id})
-        return Response(json.loads(json.dumps(serializer.data)))
+        return Response(serializer.data)
         # return Response(json.loads(json.dumps(super().list(request, *args, **kwargs).data)), status=status.HTTP_200_OK)
         
     
