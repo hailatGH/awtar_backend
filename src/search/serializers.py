@@ -9,16 +9,7 @@ class ArtistsSerializer(serializers.ModelSerializer):
     class Meta:
         model = ArtistsModel
         fields = '__all__'
-    def get_artist_profileImage(self, obj):
-        request = self.context.get('request')
-        if obj.artist_profileImage:
-            image_url = obj.artist_profileImage.url
-            if request is not None:
-                current_site = Site.objects.get_current(request=request)
-                image_url = current_site.domain + image_url
-            return image_url
-        else:
-            return None
+
     def get_artist_profileImage(self, obj):
         artist_profileImage = obj.artist_profileImage.url
         # artist_profileImage = "https://awtarstoragev100.blob.core.windows.net/awtarstorage/media" + artist_profileImage # replace adjust_artist_profileImage with your custom function
