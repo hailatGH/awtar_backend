@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'drf_yasg',
     'rest_framework',
     'storages',
+    'django_filters',
+    'django.contrib.postgres.search',
     
     # Custom Apps
     'music',
