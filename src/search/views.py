@@ -29,7 +29,7 @@ class ArtistViewSet(viewsets.ModelViewSet):
             rank=SearchRank(search_vector, search_query) + TrigramSimilarity('artist_name', query) + TrigramSimilarity('artist_description', query),
         ).filter(Q(rank__gte=0.1)).distinct().order_by('-rank','id')
         serializer = self.get_serializer(results, many=True)
-        return Response(serializer.data)
+        return Response(json.loads(json.dumps(serializer.data)))
     
 
     def create(self, request, *args, **kwargs):
