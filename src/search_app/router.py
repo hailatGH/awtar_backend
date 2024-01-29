@@ -1,6 +1,6 @@
 from rest_framework.routers import DefaultRouter
 
-from search.views import *
+from search_app.views import *
 
 searchrouter = DefaultRouter(trailing_slash=False)
 searchrouter.register(r'track',  TrackViewSet, basename="track")

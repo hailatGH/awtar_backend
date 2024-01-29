@@ -10,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-5vxjrkj0@3kok#r(0-$l3co7q1omml%444!18&37xocwp-v#6-')
 
-DEBUG = False
+DEBUG = True
 if os.environ.get('DEBUG') == "True":
     DEBUG = True
 
@@ -52,7 +52,7 @@ INSTALLED_APPS = [
     
     # Custom Apps
     'music',
-    'search',
+    'search_app',
 ]
 
 MIDDLEWARE = [
@@ -86,13 +86,24 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': os.environ.get('POSTGRES_DB'),
+#         'USER': os.environ.get('POSTGRES_USER'),
+#         'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+#         'HOST': os.environ.get('POSTGRES_HOST'),
+#         'PORT': '5432'
+#         # 'OPTIONS': {'sslmode': 'require'}
+#     }
+# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('POSTGRES_DB'),
-        'USER': os.environ.get('POSTGRES_USER'),
-        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
-        'HOST': os.environ.get('POSTGRES_HOST'),
+        'NAME': 'awtar-backend-db',
+        'USER': 'awtaradmin',
+        'PASSWORD': 'StrongP@ssword1212',
+        'HOST': 'awtar-backend-db.postgres.database.azure.com',
         'PORT': '5432'
         # 'OPTIONS': {'sslmode': 'require'}
     }
